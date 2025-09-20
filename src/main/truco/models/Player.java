@@ -1,16 +1,17 @@
 package main.truco.models;
 
-import java.util.ArrayList;
+import main.truco.services.Hand;
+import java.util.List;
 
 public class Player {
     private String name;
     private int score;
-    private ArrayList<Card> hand;
+    private Hand hand;
 
     public Player(String name) {
         this.name = name;
         this.score = 0;
-        this.hand = new ArrayList<>();
+        this.hand = new Hand();
     }
 
     public String getName() {
@@ -25,30 +26,28 @@ public class Player {
         this.score += points;
     }
 
-    public ArrayList<Card> getHand() {
+    public Hand getHand() {
         return hand;
     }
 
-    public void addCard(Card card){
-        if (hand.size() < 3) {
-            hand.add(card);
-        } else {
-            throw new IllegalStateException("Hand is full");
-        }
+    public void newHand(List<Card> cards) {
+        this.hand = new Hand(cards);
     }
 
-    public Card playCard(int index){
-        if (index >= 0 && index < hand.size()) {
-            return hand.remove(index);
-        } else {
-            throw new IndexOutOfBoundsException("Invalid card index");
-        }
+    public void addCard(Card card) {
+        hand.addCard(card);
+    }
+
+    public Card playCard(int index) {
+        return hand.playCard(index);
+    }
+
+    public boolean hasCards() {
+        return !hand.isEmpty();
     }
 
     @Override
     public String toString() {
-        return "Player: " + name + " | Score: " + score;
+        return "Player: " + name + " | Score: " + score + " | Hand: " + hand;
     }
-
-
 }

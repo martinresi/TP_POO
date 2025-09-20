@@ -46,6 +46,6 @@ public class Card {
     }
 
     public String toString(){
-        return name + " of " + suit;
+        return name + " de " + suit;
     }
 }
