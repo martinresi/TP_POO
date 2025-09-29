@@ -13,36 +13,20 @@ public class Card {
         this.name = name;
     }
 
-    public int trucoValue(){
-        return value;
-    }
-
     public int envidoValue(){
-        return value > 7 ? 0 : value;
+        if (value >= 1 && value <= 7) {
+            return value;
+        } else {
+            return 0;
+        }
     }
 
     public Suit getSuit(){
         return suit;
     }
 
-    public void setSuit(Suit suit){
-        this.suit = suit;
-    }
-
     public int getValue(){
         return value;
-    }
-
-    public void setValue(int value){
-        this.value = value;
-    }
-
-    public String getName(){
-        return name;
-    }
-
-    public void setName(String name){
-        this.name = name;
     }
 
     public String toString(){

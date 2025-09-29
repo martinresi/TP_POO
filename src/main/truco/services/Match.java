@@ -22,6 +22,10 @@ public class Match {
         players.add(player);
     }
 
+    public int getTargetScore() {
+        return pointsToWin;
+    }
+
     public void start() {
         System.out.println("RONDA COMIENZA " + pointsToWin + " PUNTOS PARA EL GANADOR!");
         nextRound();

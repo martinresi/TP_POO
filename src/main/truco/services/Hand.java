@@ -35,10 +35,6 @@ public class Hand {
         return cards;
     }
 
-    public int size() {
-        return cards.size();
-    }
-
     @Override
     public String toString() {
         return cards.toString();

@@ -38,6 +38,10 @@ public class Player {
         hand.addCard(card);
     }
 
+    public void addScore(int points) {
+        this.score += points;
+    }
+
     public Card playCard(int index) {
         return hand.playCard(index);
     }
