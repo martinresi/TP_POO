@@ -50,6 +50,8 @@ public class Player {
         return !hand.isEmpty();
     }
 
+    
+
     @Override
     public String toString() {
         return "Player: " + name + " | Score: " + score + " | Hand: " + hand;

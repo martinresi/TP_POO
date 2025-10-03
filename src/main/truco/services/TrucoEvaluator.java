@@ -1,9 +1,9 @@
 package main.truco.services;
 
+import java.util.List;
 import main.truco.models.Card;
 import main.truco.models.Player;
 import main.truco.models.Suit;
-import java.util.List;
 
 public class TrucoEvaluator {
 
@@ -20,8 +20,8 @@ public class TrucoEvaluator {
             case 5: return 2;
             case 6: return 3;
             case 7:
-                if (card.getSuit() == Suit.ORO) return 12;
-                if (card.getSuit() == Suit.COPA) return 11;
+                if (card.getSuit() == Suit.ESPADA) return 12;
+                if (card.getSuit() == Suit.ORO) return 11;
                 return 4;
             case 10: return 5;
             case 11: return 6;
@@ -45,7 +45,20 @@ public class TrucoEvaluator {
         return bestCard;
     }
 
-    public Player evaluateTrucoWinner(List<Player> players){
+    public Card getBestTrucoCardInRound(Card card1, Card card2) {
+        Card bestCard = null;
+        int bestValue = -1;
 
+        for (Card card : List.of(card1, card2)) {
+            int currentValue = getTrucoValue(card);
+            if (currentValue > bestValue) {
+                bestValue = currentValue;
+                bestCard = card;
+            }
+        }
+
+        return bestCard;
     }
+
+ 
 }

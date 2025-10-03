@@ -1,18 +1,23 @@
 package main.truco.services;
 
+import java.util.List;
 import main.truco.models.Card;
 import main.truco.models.Player;
-import java.util.List;
 
 public class Round {
     private List<Player> players;
     private int currentTurn;
     private int roundNumber;
+    private boolean isEnvidoCalled;
+    private boolean isTrucoCalled = false;
+    private boolean isTrucoAccepted = true;
+    int trucoPoints = 1;
 
     public Round(List<Player> players, int roundNumber) {
         this.players = players;
         this.currentTurn = 0;      // empieza en el primer jugador
         this.roundNumber = roundNumber;
+        this.isEnvidoCalled = false;
     }
 
     public Player getCurrentPlayer() {
@@ -38,4 +43,39 @@ public class Round {
     public boolean isOver() {
         return players.stream().allMatch(p -> p.getHand().isEmpty());
     }
+
+    public void calledEnvido() {
+        isEnvidoCalled = true;
+    }
+
+    public boolean isEnvidoCalled() {
+        return isEnvidoCalled;
+    }
+
+    public void calledTruco() {
+        isTrucoCalled = true;
+    }
+
+    public boolean isTrucoCalled() {
+        return isTrucoCalled;
+    }
+
+    public void setTrucoPoints(int points) {
+        trucoPoints = points;
+    }
+
+    public int getTrucoPoints() {
+        return trucoPoints;
+    }
+
+    public boolean isTrucoAccepted() {
+        return isTrucoAccepted;
+    }
+
+    public void setTrucoAccepted(boolean accepted) {
+        isTrucoAccepted = accepted;
+    }
+
+
+
 }
