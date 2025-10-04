@@ -158,7 +158,6 @@ public class TrucoGame {
     }
 }
 
-
     private boolean askForTruco(Player player) {
         System.out.println("\n"+ player.getName() + " quiere cantar TRUCO? (s/n): ");
         String response = scanner.nextLine().toLowerCase();
@@ -248,7 +247,8 @@ public class TrucoGame {
         } else {
             System.out.println("SIN GANADOR AUN");
         }
-    }    
+    }
+
     private Player playHand(Player j1, Player j2, int handNumber) {
 
             boolean trucoCalled = false;

@@ -1,5 +1,6 @@
 package main.truco.services;
 
+import java.util.Arrays;
 import java.util.List;
 import main.truco.models.Card;
 import main.truco.models.Player;
@@ -49,7 +50,7 @@ public class TrucoEvaluator {
         Card bestCard = null;
         int bestValue = -1;
 
-        for (Card card : List.of(card1, card2)) {
+        for (Card card : Arrays.asList(card1, card2)) {
             int currentValue = getTrucoValue(card);
             if (currentValue > bestValue) {
                 bestValue = currentValue;
