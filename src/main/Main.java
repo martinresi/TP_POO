@@ -1,12 +1,12 @@
 package main;
 
-import main.truco.controller.TrucoGame;
+import main.truco.controller.JuegoTruco;
 
 public class Main {
-
     public static void main(String[] args) {
-        TrucoGame game = new TrucoGame();
-        game.startGame();
-        game.showStatus();
+        JuegoTruco juego = new JuegoTruco();
+        juego.menu();
     }
 }
+
+
