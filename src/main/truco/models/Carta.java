@@ -1,24 +1,22 @@
 package main.truco.models;
 
 public class Carta {
-
     private final int numero;
-    private final String palo;
+    private final Palo palo;
 
-    public Carta(int numero, String palo) {
+    public Carta(int numero, Palo palo) {
         this.numero = numero;
         this.palo = palo;
     }
 
     public int getNumero() { return numero; }
-
-    public String getPalo() { return palo; }
+    public Palo getPalo() { return palo; }
 
     public int getValorTruco() {
-        if (numero == 1 && palo.equals("Espada")) return 14;
-        if (numero == 1 && palo.equals("Basto")) return 13;
-        if (numero == 7 && palo.equals("Espada")) return 12;
-        if (numero == 7 && palo.equals("Oro")) return 11;
+        if (numero == 1 && palo == Palo.ESPADA) return 14;
+        if (numero == 1 && palo == Palo.BASTO) return 13;
+        if (numero == 7 && palo == Palo.ESPADA) return 12;
+        if (numero == 7 && palo == Palo.ORO) return 11;
         if (numero == 3) return 10;
         if (numero == 2) return 9;
         if (numero == 1) return 8;

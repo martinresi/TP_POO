@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Envido {
-
     private final List<Jugador> jugadores;
     private final Scanner sc;
 
@@ -29,7 +28,6 @@ public class Envido {
             if (!"N".equalsIgnoreCase(decision))
                 return procesarCantoEnvido(i, decision);
         }
-
         System.out.println("Nadie cantó Envido.");
         return null;
     }
@@ -48,16 +46,11 @@ public class Envido {
 
         for (int r = 1; r < jugadores.size(); r++) {
             int idx = (idxCantor + r) % jugadores.size();
-
-            if (jugadores.size() == 4 && (idx % 2 == idxCantor % 2))
-                continue;
-
+            if (jugadores.size() == 4 && (idx % 2 == idxCantor % 2)) continue;
             Jugador oponente = jugadores.get(idx);
             String respuesta = oponente.responderEnvido(sc, stake, oponente.calcularEnvido());
-
             return manejarRespuestaEnvido(cantor, oponente, respuesta, stake);
         }
-
         return null;
     }
 
@@ -111,17 +104,17 @@ public class Envido {
             result.puntosGanados = stake;
             System.out.println("→ Gana el Envido " + oponente.getNombre() + " (" + stake + " puntos)");
         } else {
-            System.out.println("→ Empate de envido, gana el mano (" + cantor.getNombre() + ")");
-            asignarPuntoEquipo(cantor, stake);
-            result.ganador = cantor.getNombre();
+            Jugador mano = jugadores.get(0);
+            asignarPuntoEquipo(mano, stake);
+            result.ganador = mano.getNombre();
             result.puntosGanados = stake;
+            System.out.println("→ Empate de envido, gana el mano (" + mano.getNombre() + ")");
         }
-
         return result;
     }
 
     private void asignarPuntoEquipo(Jugador jugador, int puntos) {
-
-        System.out.println("→ " + jugador.getNombre() + " suma " + puntos + " puntos de Envido");
+        jugador.sumarPuntos(puntos);
+        System.out.println("→ " + jugador.getNombre() + " suma " + puntos + " puntos de Envido (total: " + jugador.getPuntaje() + ")");
     }
 }

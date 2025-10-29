@@ -6,12 +6,8 @@ import main.truco.utils.UtilsService;
 
 import java.util.Scanner;
 
-
 public class JugadorMaquina extends Jugador {
-
-    public JugadorMaquina(String nombre) {
-        super(nombre);
-    }
+    public JugadorMaquina(String nombre) { super(nombre); }
 
     @Override
     public Carta jugarCarta(Scanner sc) {
