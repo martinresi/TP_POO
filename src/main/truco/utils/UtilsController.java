@@ -10,6 +10,7 @@ import java.util.Scanner;
 import java.util.function.Consumer;
 
 public class UtilsController {
+
     public void prepararNuevaMano(List<Jugador> jugadores) {
         main.truco.models.Mazo mazo = new main.truco.models.Mazo();
         mazo.barajar();
